@@ -1,0 +1,47 @@
+<script>
+
+async function main(){
+
+  await liff.init({
+    liffId: "YOUR_LIFF_ID"
+  });
+
+  const profile = await liff.getProfile();
+
+  const uid = profile.userId;
+  const name = profile.displayName;
+
+  const params = new URLSearchParams(window.location.search);
+  const form = params.get("form");
+
+  let formURL = "";
+
+  // ⭐ 每個表單都加上 entry.xxx
+  if(form === "1"){
+    formURL = "https://docs.google.com/forms/d/e/1FAIpQLSd6WR6fy37oWm7iebQCSWTgwPIPP8KfrEcdJyubJtB-r7mKqg/viewform"
+    + "?entry.758654927=" + encodeURIComponent(uid)
+    + "&entry.1846372207=" + encodeURIComponent(name);
+  }
+  else if(form === "2"){
+    formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYEh9DuqvATjpO7k2aM82Ipa0S9s6gKyTX59DWoSFiwf5u7g/viewform"
+    + "?entry.88840151=" + encodeURIComponent(uid)
+    + "&entry.2027657958=" + encodeURIComponent(name);
+  }
+  else if(form === "3"){
+    formURL = "https://docs.google.com/forms/d/e/1FAIpQLSemUe4nt0u6lXWE2HxOfL9RZV56BJQlayWuFAFsS4oaM-TRRg/viewform"
+    + "?entry.2043052005=" + encodeURIComponent(uid)
+    + "&entry.852795026=" + encodeURIComponent(name);
+  }
+  else if(form === "4"){
+    formURL = "https://docs.google.com/forms/d/e/1FAIpQLSeplm-AmMaOed1H5tmugSIb2GF68TJfOnBdogxp3trfM3blhw/viewform"
+    + "?entry.1137796875=" + encodeURIComponent(uid)
+    + "&entry.432956997=" + encodeURIComponent(name);
+  }
+
+  window.location.replace(formURL);
+
+}
+
+main();
+
+</script>
